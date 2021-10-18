@@ -1,0 +1,55 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: linear-gradient(22.5deg, #ffc101 50%, #FFA700);
+
+    img {
+        height: 50px;
+    }
+
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+
+        h1 {
+            margin: 0;
+            font-size: 1.5em;
+            font-family: 'Scheherazade New', serif;
+
+            transition: all .5s;
+        }
+    }
+
+    #navbarNav {
+        justify-content: flex-end;
+
+        .nav-link {
+            font-size: 1.2em;
+        }
+    }
+}
+
+a:hover > h1 {
+    color: #000;
+}
+
+@media only screen and (max-width: 315px) {
+    .navbar {
+        .container-fluid {
+            margin: 0;
+            padding: 0;
+            
+            img {
+                height: 40px;
+            }
+
+            .navbar-brand {
+                h1 {
+                    font-size: 1.15em;
+                }
+            }
+        }
+    }
+}

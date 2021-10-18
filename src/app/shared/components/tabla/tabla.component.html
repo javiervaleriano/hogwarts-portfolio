@@ -1,0 +1,31 @@
+<div class="responsive-cont">
+    <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+            <td mat-cell *matCellDef="let persona">{{persona.name}}</td>
+        </ng-container>
+    
+        <ng-container matColumnDef="patronus">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Patronus</th>
+            <td mat-cell *matCellDef="let persona">{{persona.patronus ? persona.patronus : 'Sin patronus'}}</td>
+        </ng-container>
+    
+        <ng-container matColumnDef="age">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Edad</th>
+            <td mat-cell *matCellDef="let persona">{{persona.dateOfBirth ? anioActual - persona.yearOfBirth :
+                'Desconocida'}}</td>
+        </ng-container>
+    
+        <ng-container matColumnDef="image">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Imagen</th>
+            <td mat-cell *matCellDef="let persona">
+                <ng-container *ngIf="persona.image; else sinImagen"><img [src]="persona.image" alt="imagen" />
+                </ng-container>
+                <ng-template #sinImagen>Sin imagen</ng-template>
+            </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

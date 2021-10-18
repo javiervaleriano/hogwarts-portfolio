@@ -1,0 +1,61 @@
+<div class="container">
+    <h2>Envía tu solicitud</h2>
+    <!-- Formulario de Angular Material con ReactiveForms -->
+    <form novalidate (ngSubmit)="onSubmit()" [formGroup]="solicitudForm">
+        <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input matInput #input minlength="1" placeholder="Ej. Marcos" formControlName="nombre">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Apellido</mat-label>
+            <input matInput #input minlength="1" placeholder="Ej. Rodríguez" formControlName="apellido">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Correo</mat-label>
+            <input matInput #input minlength="1" placeholder="Ej. marcosr@gmail.com" formControlName="correo">
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+            <mat-label>Casa Hogwarts favorita</mat-label>
+            <mat-select formControlName="casa">
+                <mat-option *ngFor="let option of casas" value={{option}}>{{option}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button type="submit" mat-button [disabled]="solicitudForm.invalid">Enviar</button>
+    </form>
+
+    <div class="contenedor-tabla">
+        <ng-container *ngIf="solicitudes; else noItems">
+            <table mat-table [dataSource]="dataSource">
+                <!-- Columna de nombre -->
+                <ng-container matColumnDef="nombre">
+                    <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                    <td mat-cell *matCellDef="let solicitud">{{solicitud.nombre}}</td>
+                </ng-container>
+                <!-- Columna de apellido -->
+                <ng-container matColumnDef="apellido">
+                    <th mat-header-cell *matHeaderCellDef>Apellido</th>
+                    <td mat-cell *matCellDef="let solicitud">{{solicitud.apellido}}</td>
+                </ng-container>
+            
+                <!-- Columna de correo -->
+                <ng-container matColumnDef="correo">
+                    <th mat-header-cell *matHeaderCellDef>Correo</th>
+                    <td mat-cell *matCellDef="let solicitud">{{solicitud.correo}}</td>
+                </ng-container>
+            
+                <!-- Columna de casa -->
+                <ng-container matColumnDef="casa">
+                    <th mat-header-cell *matHeaderCellDef>Casa preferida</th>
+                    <td mat-cell *matCellDef="let solicitud">{{solicitud.casa}}</td>
+                </ng-container>
+            
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </ng-container>
+        <ng-template #noItems></ng-template>
+    </div>
+</div>

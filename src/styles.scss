@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-select-value { color: #000; }
+.mat-select-arrow { color: #000; }
+.mat-select-panel { background: #ffa500; }
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) { color: #a9a9a9; }
+.mat-form-field-appearance-fill .mat-form-field-flex { background-color: rgba(250, 168, 16, 0.616); }

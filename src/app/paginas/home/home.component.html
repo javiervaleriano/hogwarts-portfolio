@@ -1,0 +1,30 @@
+<div id="cont-banner">
+    <div>
+        <h2>Tú, futuro mago, <span title="Nunca le hagas cosquillas a un dragón dormido">Draco dormiens nunquam
+                titillandus</span></h2>
+    </div>
+</div>
+<!-- SECCIÓN DE PERSONAJES -->
+<section id="sec-personajes">
+    <div class="sec-personajes-title">
+        <h3 class="h3">Conoce a nuestros personajes de la casa</h3>
+        <select name="houses" id="sec-personajes-select" (change)="mostrarPersonajes($event)">
+            <option value="gryffindor" selected>Gryffindor</option>
+            <option value="hufflepuff">Hufflepuff</option>
+            <option value="ravenclaw">Ravenclaw</option>
+            <option value="slytherin">Slytherin</option>
+        </select>
+    </div>
+    <app-tabla [persona]="personajes"></app-tabla>
+</section>
+<!-- SECCIÓN DE ESTUDIANTES -->
+<section id="sec-estudiantes">
+    <h3 class="h3">Nuestros estudiantes</h3>
+    <app-tabla [persona]="estudiantes"></app-tabla>
+    <a id="secestudiantes-btnlink" [routerLink]="['/form']"><button class="btn btn-warning" type="button">Envía tu solicitud para ser un mago de Hogwarts</button></a>
+</section>
+<!-- SECCIÓN DE PROFESORES -->
+<section id="sec-profesores">
+    <h3 class="h3">Nuestros distinguidos profesores</h3>
+    <app-tabla [persona]="profesores"></app-tabla>
+</section>

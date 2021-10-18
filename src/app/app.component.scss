@@ -1,0 +1,11 @@
+#container {
+    display: grid;
+    grid-template-rows: max-content 1fr max-content;
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+}
+
+#footer {
+    text-align: center;
+    padding: 1em 0 .25em;
+}
