@@ -50,12 +50,4 @@ export class HomeComponent implements OnInit {
             tap((profesores: PEPInterface[]) => this.profesores = profesores)
         ).subscribe();
     }
-
-    // ngOnInit(): void {
-    //   this.productSvc.getProducts()
-    //   .pipe(
-    //     tap( (products: Product[]) => this.products = products)
-    //   )
-    //   .subscribe();
-    // }
 }
